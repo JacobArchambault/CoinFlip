@@ -18,53 +18,26 @@ import javafx.stage.Stage;
 public class App extends Application {
 
 	@Override
-	public void start(
-			Stage primaryStage) {
-		// Load the coin images.
-		Image headsImage = new Image(
-				"file:Heads1.png");
-		Image tailsImage = new Image(
-				"file:Tails1.png");
+	public void start(Stage primaryStage) {
 		// Create the ImageView control.
-		ImageView coinImage = new ImageView();
-		coinImage.setFitWidth(
-				200);
-		coinImage.setFitHeight(
-				200);
+		Coin coinImage = new Coin(new Image("file:Heads1.png"), new Image("file:Tails1.png"), new Random());
+		coinImage.setFitWidth(200);
+		coinImage.setFitHeight(200);
 		// Create the tossButton control.
-		Button tossButton = new Button(
-				"Toss");
+		Button tossButton = new Button("Toss");
 		// Register the event handler.
-		tossButton.setOnAction(
-				e -> {
-					if (new Random().nextInt(
-							2) == 0)
-						coinImage.setImage(
-								headsImage);
-					else
-						coinImage.setImage(
-								tailsImage);
-				});
+		tossButton.setOnAction(e -> coinImage.flip());
 		// Put everything into a VBox
-		VBox mainVBox = new VBox(
-				10,
-				coinImage,
-				tossButton);
-		mainVBox.setAlignment(
-				Pos.CENTER);
-		mainVBox.setPadding(
-				new Insets(
-						10));
+		VBox mainVBox = new VBox(10, coinImage, tossButton);
+		mainVBox.setAlignment(Pos.CENTER);
+		mainVBox.setPadding(new Insets(10));
 		// Add the main VBox to a scene.
 		// Set the scene to the stage and display it.
-		primaryStage.setScene(
-				new Scene(
-						mainVBox));
+		primaryStage.setScene(new Scene(mainVBox));
 		primaryStage.show();
 	}
 
-	public static void main(
-			String[] args) {
+	public static void main(String[] args) {
 		launch();
 	}
 
