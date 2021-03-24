@@ -21,8 +21,9 @@ public class App extends Application {
 	public void start(Stage primaryStage) {
 		// Create the ImageView control.
 		Coin coinImage = new Coin(new Image("file:Heads1.png"), new Image("file:Tails1.png"), new Random());
-		coinImage.setFitWidth(200);
-		coinImage.setFitHeight(200);
+		coinImage.setFitWidth(150);
+		coinImage.setFitHeight(150);
+		coinImage.setPreserveRatio(true);
 		// Create the tossButton control.
 		Button tossButton = new Button("Toss");
 		// Register the event handler.

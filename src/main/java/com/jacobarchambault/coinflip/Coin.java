@@ -1,6 +1,7 @@
 package com.jacobarchambault.coinflip;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
